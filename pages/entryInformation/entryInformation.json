@@ -1,0 +1,15 @@
+{
+  "navigationBarBackgroundColor": "#FC3B40",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "单次信息录入",
+  "backgroundColor": "#EBEFF8",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "van-action-sheet": "/npmComponent/dist/action-sheet/index",
+    "van-field": "/npmComponent/dist/field/index",
+    "van-picker": "/npmComponent/dist/picker/index",
+    "van-popup": "/npmComponent/dist/popup/index",
+    "van-dialog": "/npmComponent/dist/dialog/index",
+    "van-toast": "/npmComponent/dist/toast/index"
+  }
+}

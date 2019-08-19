@@ -1,0 +1,64 @@
+{
+  "pages": [
+    
+    "pages/entrance/entrance",
+    "pages/contract/contract",
+    
+    "pages/oneTimesDetail/oneTimesDetail",
+    "pages/moreTimesDetail/moreTimesDetail",
+    
+    
+    "pages/entryInformation/entryInformation",
+    "pages/timesInformation/timesInformation",
+    "pages/limit/limit",
+    
+    "pages/coverSignature/coverSignature",
+
+    
+    "pages/contranceImg/contranceImg",
+    
+    "pages/deduction/deduction",
+    "pages/center/center",
+
+    
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundColor": "#FC3B40",
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#FC3B40",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "selectedIconPath": "static/img/ishome.png",
+        "iconPath": "static/img/home.png",
+        "pagePath": "pages/entrance/entrance",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "static/img/isht.png",
+        "iconPath": "static/img/ht.png",
+        "pagePath": "pages/contract/contract",
+        "text": "合同"
+      },
+      {
+        "selectedIconPath": "static/img/iskk.png",
+        "iconPath": "static/img/kk.png",
+        "pagePath": "pages/deduction/deduction",
+        "text": "扣款"
+      },
+      {
+        "selectedIconPath": "static/img/ismy.png",
+        "iconPath": "static/img/my.png",
+        "pagePath": "pages/center/center",
+        "text": "个人中心"
+      }
+    ],
+    "color": "#cccccc",
+    "selectedColor": "#FC3B40"
+  },
+  "sitemapLocation": "sitemap.json"
+}

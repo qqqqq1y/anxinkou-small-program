@@ -1,0 +1,15 @@
+
+@import "/npmComponent/dist/common/index.wxss";
+
+view {
+  box-sizing: border-box;
+}
+
+button::after{
+  border:none;
+}
+input{
+  outline:none;
+  border:none;
+  list-style: none;
+}

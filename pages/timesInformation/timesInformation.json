@@ -1,0 +1,12 @@
+{
+  "navigationBarBackgroundColor": "#FC3B40",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "分期扣款信息",
+  "backgroundColor": "#EBEFF8",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "van-field": "/npmComponent/dist/field/index",
+    "van-dialog": "/npmComponent/dist/dialog/index",
+    "van-toast": "/npmComponent/dist/toast/index"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "扣款",
+  "backgroundTextStyle": "light",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-tab": "/npmComponent/dist/tab/index",
+    "van-tabs": "/npmComponent/dist/tabs/index",
+    "van-dialog": "/npmComponent/dist/dialog/index",
+    "van-search": "/npmComponent/dist/search/index"
+  }
+}

@@ -1,0 +1,280 @@
+<van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:search="handleSearch" bind:clear="handleClear"/>
+
+
+<van-tabs style="z-index: 1001" sticky animated active="{{ active }}" bind:click="handleChangeTabs">
+  <van-tab title="未完成">
+    <block wx:for="{{noOverList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <view class="ct-container">
+        <view class="list">
+          <view class="item" bindtap="handleInfo" data-info="{{item}}">
+            <view class="col orderId">
+              <view class="lab">订单号:</view>
+              <view class="val">{{item.orderNumber}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">客户名:</view>
+              <view class="val">{{item.customName}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">身份证:</view>
+              <view class="val">{{item.idCard}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">扣款状态:</view>
+              <view class="val">{{item.deductedStatus}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">手机号:</view>
+              <view class="val">{{item.bankBindPhone}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">创建时间:</view>
+              <view class="val">{{item.createTime}}</view>
+            </view>
+            <block wx:if="{{item.progress > 1}}">
+              <view class="col">
+                <view class="lab">委托扣款合同:</view>
+                <view class="val review" catchtap="handleReview" data-img="{{item.contractImage}}">查看</view>
+              </view>
+            </block>
+            <view class="col">
+              <view class="lab">合同分类:</view>
+              <view class="val">{{item.contractType === 1 ? '单次扣款' : '分期扣款'}}</view>
+            </view>
+            <block wx:if="{{item.contractType === 2}}">
+              <view class="col">
+                <view class="lab">一档分期扣款次数:</view>
+                <view class="val">{{item.oneTimeInstalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">一档分期扣款金额:</view>
+                <view class="val">{{item.oneTimeInstalmentAmount}}元</view>
+              </view>
+              <view class="col">
+                <view class="lab">二档分期扣款次数:</view>
+                <view class="val">{{item.twoTimeInstalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">一档分期扣款金额:</view>
+                <view class="val">{{item.twoTimeInstalmentAmount}}元</view>
+              </view>
+              <view class="col">
+                <view class="lab">三档分期扣款次数:</view>
+                <view class="val">{{item.threeTimeInstalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">一档分期扣款金额:</view>
+                <view class="val">{{item.threeTimeInstalmentAmount}}元</view>
+              </view>
+              <view class="col">
+                <view class="lab">总分期次数:</view>
+                <view class="val">{{item.instalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">已代扣次数:</view>
+                <view class="val">{{item.deductedCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">分期每月扣款时间:</view>
+                <view class="val">{{item.monthTime}}</view>
+              </view>
+            </block>
+            <view class="col-btn col-btn-top" catchtap="handleDeleteContract" data-id="{{item.contractId}}">删除</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </van-tab>
+  <van-tab title="业务进行中">
+    <block wx:for="{{doingList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <view class="ct-container">
+        <view class="list">
+          <view class="item">
+            <view class="col orderId">
+              <view class="lab">订单号:</view>
+              <view class="val">{{item.orderNumber}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">客户名:</view>
+              <view class="val">{{item.customName}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">身份证:</view>
+              <view class="val">{{item.idCard}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">扣款状态:</view>
+              <view class="val">{{item.deductedStatus}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">手机号:</view>
+              <view class="val">{{item.bankBindPhone}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">创建时间:</view>
+              <view class="val">{{item.createTime}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">委托扣款合同:</view>
+              <view class="val review" catchtap="handleReview" data-img="{{item.contractImage}}">查看</view>
+            </view>
+            <view class="col">
+              <view class="lab">合同分类:</view>
+              <view class="val">{{item.contractType === 1 ? '单次扣款' : '分期扣款'}}</view>
+            </view>
+
+            <block wx:if="{{item.contractType === 1}}">
+              <view class="col">
+                <view class="lab">最后一次代扣信息:{{item.deductedInfo}}</view>
+              </view>
+            </block>
+            <block wx:if="{{item.contractType === 2}}">
+              <view class="col">
+                <view class="lab">一档分期扣款次数:</view>
+                <view class="val">{{item.oneTimeInstalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">一档分期扣款金额:</view>
+                <view class="val">{{item.oneTimeInstalmentAmount}}元</view>
+              </view>
+              <view class="col">
+                <view class="lab">二档分期扣款次数:</view>
+                <view class="val">{{item.twoTimeInstalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">一档分期扣款金额:</view>
+                <view class="val">{{item.twoTimeInstalmentAmount}}元</view>
+              </view>
+              <view class="col">
+                <view class="lab">三档分期扣款次数:</view>
+                <view class="val">{{item.threeTimeInstalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">一档分期扣款金额:</view>
+                <view class="val">{{item.threeTimeInstalmentAmount}}元</view>
+              </view>
+              <view class="col">
+                <view class="lab">总分期次数:</view>
+                <view class="val">{{item.instalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">已代扣次数:</view>
+                <view class="val">{{item.deductedCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">分期每月扣款时间:</view>
+                <view class="val">{{item.monthTime}}</view>
+              </view>
+            </block>
+
+            <view class="col-btn col-btn-top" catchtap="handleCancelDeducted" data-customid="{{item.customId}}" data-id="{{item.contractId}}">放弃代扣</view>
+
+            <block wx:if="{{item.contractType === 1 || (item.contractType === 2 && item.instalmentStartFlag == 0)}}">
+              <view class="col-btn col-btn-bottom" 
+                bindtap="handleToDetail"
+                data-type="{{item.contractType}}"
+                data-customId="{{item.customId}}"
+                data-name="{{item.customName}}"
+                data-id="{{item.contractId}}">代扣</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </van-tab>
+  <van-tab title="业务已结束">
+    <block wx:for="{{overList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+      <view class="ct-container">
+        <view class="list">
+          <view class="item">
+            <view class="col orderId">
+              <view class="lab">订单号:</view>
+              <view class="val">{{item.orderNumber}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">客户名:</view>
+              <view class="val">{{item.customName}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">身份证:</view>
+              <view class="val">{{item.idCard}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">扣款状态:</view>
+              <view class="val">{{item.deductedStatus}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">手机号:</view>
+              <view class="val">{{item.bankBindPhone}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">创建时间:</view>
+              <view class="val">{{item.createTime}}</view>
+            </view>
+            <view class="col">
+              <view class="lab">委托扣款合同:</view>
+              <view class="val review" catchtap="handleReview" data-img="{{item.contractImage}}">查看</view>
+            </view>
+            <view class="col">
+              <view class="lab">合同分类:</view>
+              <view class="val">{{item.contractType === 1 ? '单次扣款' : '分期扣款'}}</view>
+            </view>
+            <block wx:if="{{item.contractType === 1}}">
+              <view class="col">
+                <view class="lab">最后一次代扣信息:{{item.deductedInfo}}</view>
+              </view>
+            </block>
+            <block wx:if="{{item.contractType === 2}}">
+              <view class="col">
+                <view class="lab">一档分期扣款次数:</view>
+                <view class="val">{{item.oneTimeInstalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">一档分期扣款金额:</view>
+                <view class="val">{{item.oneTimeInstalmentAmount}}元</view>
+              </view>
+              <view class="col">
+                <view class="lab">二档分期扣款次数:</view>
+                <view class="val">{{item.twoTimeInstalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">一档分期扣款金额:</view>
+                <view class="val">{{item.twoTimeInstalmentAmount}}元</view>
+              </view>
+              <view class="col">
+                <view class="lab">三档分期扣款次数:</view>
+                <view class="val">{{item.threeTimeInstalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">一档分期扣款金额:</view>
+                <view class="val">{{item.threeTimeInstalmentAmount}}元</view>
+              </view>
+              <view class="col">
+                <view class="lab">总分期次数:</view>
+                <view class="val">{{item.instalmentCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">已代扣次数:</view>
+                <view class="val">{{item.deductedCount}}</view>
+              </view>
+              <view class="col">
+                <view class="lab">分期每月扣款时间:</view>
+                <view class="val">{{item.monthTime}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </van-tab>
+</van-tabs>
+
+<van-dialog id="van-dialog" />
+
+<block wx:if="{{show}}">
+  <view class="contract-box" bindtap="handleCloseImg">
+    <view class="mask"></view>
+    <image class="img" src="{{contractUrl}}" />
+  </view>
+</block>
+

@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="nav" style="height: {{navHeight + 44}}px"></view>
+
+  <view class="logo-box">
+    <image class="logo" src="/static/img/logo.png" />
+  </view>
+
+  <view class="login-box">
+    <van-cell-group>
+      <van-field
+        value="{{ username }}"
+        required
+        clearable
+        placeholder-style="color: #fff"
+        input-class="ipt"
+        left-icon="contact"
+        placeholder="请输入用户名"
+        bind:input="handleUsername"
+      />
+    </van-cell-group>
+    <van-cell-group>
+      <van-field
+        value="{{ password }}"
+        required
+        clearable
+        placeholder-style="color: #fff"
+        input-class="ipt"
+        left-icon="close"
+        placeholder="请输入密码"
+        bind:input="handlePassword"
+      />
+    </van-cell-group>
+    <view class="radio-group">
+      <van-radio
+        checked-color="#07c160"
+        shape="square"
+        value="{{ isChecked }}"
+        name="yes"
+        label-class="lab"
+        bind:change="handleChangeRadio"
+        >记住用户名</van-radio>
+    </view>
+  </view>
+
+  <view class="login-btn">
+    <view class="btn" bindtap="handleLogin">登录</view>
+  </view>
+
+  <view class="forget" bindtap="handleForgetPass">忘记密码?</view>
+</view>

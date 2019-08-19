@@ -1,0 +1,33 @@
+<view class="times-container">
+  <view class="info">
+    <view class="col">
+      <view class="lab">姓名:</view>
+      <view class="lab">{{customName}}</view>
+    </view>
+    <view class="col">
+      <view class="lab">合同代扣次数:</view>
+      <view class="lab">{{times}}</view>
+    </view>
+    <view class="col">
+      <view class="lab">请输入扣款金额:</view>
+      <view class="lab val">
+        <input class="ipt" type="number" bindblur="handleBlur" />
+      </view>
+    </view>
+  </view>
+  <view class="note">
+    <view class="it">1. 每日扣款最多两次, 每次最短间隔三分钟</view>
+    <view class="it">2. 若本银行卡当日因余额不足造成2次扣款失败, 次日可在扣款一次。 若依然因余额不足造成扣款失败, 本月不可再扣款</view>
+    <view class="it">3. 各银行卡扣款每笔限额, 请参照首页 '银行卡扣款限额信息'</view>
+    <view class="it">4. 扣款额度, 请与实际放款数额所需支付的服务费比例一致</view>
+    <view class="it">5. 实际扣款最高额度, 不可超过《委托扣款合同》中所标注的放款数额所需支付的服务费比例</view>
+  </view>
+
+  <view class="btn-group">
+    <view class="btn" bindtap="handleDeduct">扣款</view>
+    <view class="btn" bindtap="handleToBack">取消</view>
+  </view>
+</view>
+
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />

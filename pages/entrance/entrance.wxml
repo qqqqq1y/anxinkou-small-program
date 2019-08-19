@@ -1,0 +1,14 @@
+<view class='entrance'>
+  <view class="item-box" bindtap="handleToEntryInformation">
+    <image class="img-tip" src="/static/img/single.jpg" />
+    <view class="title">单次扣款信息录入</view>
+  </view>
+  <view class="item-box" bindtap="handleToTimesInformation">
+    <image class="img-tip" src="/static/img/single.jpg" />
+    <view class="title">分期扣款信息录入</view>
+  </view>
+  <view class="item-box" bindtap="handleToLimit">
+    <image class="img-tip" src="/static/img/cardinfo.jpg" />
+    <view class="title">银行卡扣款限额信息</view>
+  </view>  
+</view>

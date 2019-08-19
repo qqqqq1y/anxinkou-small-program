@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "登录",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "van-field": "/npmComponent/dist/field/index",
+    "van-radio": "/npmComponent/dist/radio/index"
+  }
+}

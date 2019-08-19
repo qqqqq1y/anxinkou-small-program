@@ -1,0 +1,14 @@
+<view class="img-container">
+  <image class="img" src="{{url}}" />
+</view>
+
+<block wx:if="{{progress == 1}}">
+  <view class="btn" bindtap="handleToCoverSign">客户签字</view>
+</block>
+
+<block wx:if="{{progress == 2}}">
+  <view class="btn" bindtap="handleToNext">下一步</view>
+</block>
+
+<!-- http://testimage.weiqiangtech.com/upload/20190803141711951.pdf -->
+<!-- http://testimage.weiqiangtech.com/upload/20190803141711951.jpg -->

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "委托服务费扣款",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "van-field": "/npmComponent/dist/field/index",
+    "van-toast": "/npmComponent/dist/toast/index",
+    "van-dialog": "/npmComponent/dist/dialog/index"
+  }
+}

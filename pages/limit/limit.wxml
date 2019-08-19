@@ -1,0 +1,13 @@
+<view class="limit-container">
+  <view class="title-box">
+    <view class="title">银行名</view>
+    <view class="line"></view>
+    <view class="title">单笔扣款限额</view>
+  </view>
+  <view class="main">
+    <view class="item" wx:for="{{bankList}}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+      <view class="item-val">{{item.bankName}}</view>
+      <view class="item-val">{{item.deductLimit}}元</view>
+    </view>
+  </view>
+</view>

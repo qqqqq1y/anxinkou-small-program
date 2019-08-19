@@ -1,0 +1,31 @@
+<view class="times-container">
+  <view class="ipt-box">
+    <view class="lab">请输入分期总次数:</view>
+    <van-field
+      input-class="ipt"
+      value="{{ times }}"
+      input-align="center"
+      type="number"
+      placeholder="正整数"
+      bind:change="handleInputValue"
+    />
+  </view>
+  <text class="note">
+    注: 第一期扣款时间为分期扣款的第一次扣款时间。第二次扣款时间为第一次扣款时间之后下一个月的同一天。例：第一次扣款时间为8月20日, 则第二次扣款时间为9月20日, 以此类推。
+  </text>
+
+  <view class="btn" bindtap="handleShowDialog">确定</view>
+</view>
+
+<van-dialog
+  use-slot
+  title="分期扣款信息"
+  show="{{ showDialog }}"
+  show-cancel-button
+  bind:close="handleCloseDialog"
+  bind:confirm="hadnleCreateInfo"
+>
+  <view class="dialog-info">总分期次数: {{ times }}</view>
+</van-dialog>
+
+<van-toast id="van-toast" />

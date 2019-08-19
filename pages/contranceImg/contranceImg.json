@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "委托代扣款合同",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "van-tab": "/npmComponent/dist/tab/index",
+    "van-tabs": "/npmComponent/dist/tabs/index"
+  }
+}

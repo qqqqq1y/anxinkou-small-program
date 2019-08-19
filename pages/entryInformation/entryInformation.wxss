@@ -1,0 +1,92 @@
+page {
+  position: relative;
+  min-height: 100%;
+  background: #EBEFF8;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: #000;
+  opacity: 0.5;
+}
+
+.info-container {
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.cord-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24rpx;
+  height: 400rpx;
+  border-radius: 5rpx;
+  background: #FFF;
+  font-size: 32rpx;
+  color: #000;
+}
+
+.camera-icon {
+  width: 136rpx;
+  height: 136rpx;
+  text-align: center;
+  line-height: 136rpx;
+}
+
+.camera {
+  width: 88rpx;
+  height: 64rpx;
+}
+
+.cordImg {
+  width: 100%;
+  height: 100%;
+}
+
+.van-cell {
+  padding: 16px 15px !important;
+  border-bottom: 1px solid #1A1E27 !important;
+  background: none !important;
+}
+
+.ipt {
+  padding-left: 16rpx !important;
+}
+
+.btn-box {
+  margin-top: 48rpx;
+  display: flex;
+  padding: 0 24rpx;
+  height: 96rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rpx;
+  background: #FC3B40;
+  font-size: 32rpx;
+  color: #FFF;
+}
+
+.dialog {
+  margin: 24rpx;
+  padding: 0 16rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.col {
+  margin-top: 12rpx;
+}
+
+.col-lab {
+  margin-right: 16rpx;
+}

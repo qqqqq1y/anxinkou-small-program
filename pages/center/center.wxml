@@ -1,0 +1,58 @@
+<view class="my-container">
+  <view class="info">
+    <view class="avatar">
+      <image class="img" src="/static/img/default.png" />
+    </view>
+    <text class="name">邵强</text>
+    <text >15601106412</text>
+  </view>
+
+  <view class="main">
+    <view class="col">
+      <view class="col-bor">
+        <image class="col-icon" src="/static/img/icon_opera.png" />
+        <view class="col-lab">所属公司:</view>
+        <view class="col-val opera">北京无线科技有限公司</view>
+      </view>
+    </view>
+    <view class="col">
+      <view class="col-bor">
+        <image class="col-icon about" src="/static/img/icon_about.png" />
+        <view class="col-lab" style="text-align: left">关于我们:</view>
+        <view class="col-val arrow"></view>
+      </view>
+    </view>
+    <view class="col">
+      <view class="col-bor">
+        <image class="col-icon" src="/static/img/icon_change_pwd.png" />
+        <view class="col-lab">密码修改:</view>
+        <view class="col-val arrow"></view>
+      </view>
+    </view>
+    <view class="col">
+      <view class="col-bor">
+        <image class="col-icon" src="/static/img/icon_version.png" />
+        <view class="col-lab">当前版本:</view>
+        <view class="col-val col-red">V.1.3</view>
+      </view>
+    </view>
+    <view class="col">
+      <view class="col-bor">
+        <image class="col-icon" src="/static/img/icon_phone.png" />
+        <view class="col-lab">客服电话:</view>
+        <view class="col-val col-red">4001002323</view>
+      </view>
+    </view>
+    <view class="col">
+      <view class="col-bor">
+        <image class="col-icon" src="/static/img/icon_download.png" />
+        <view class="col-lab">下载专区:</view>
+        <view class="col-val">
+          <image class="code" src="/static/img/icon_deminsion.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="logout">退出登录</view>
+</view>

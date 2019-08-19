@@ -1,0 +1,62 @@
+<view class="times-container">
+  <view class="info">
+    <view class="col">
+      <view class="lab">姓名:</view>
+      <view class="lab">{{customName}}</view>
+    </view>
+    <view class="col">
+      <view class="lab">一档分期扣款次数:</view>
+      <view class="lab val">
+        <input class="ipt" bindblur="handleBlur" placeholder="如: 3" data-type="oneTimeInstalmentCount" data-typeStr="一档分期扣款次数" />
+      </view>
+    </view>
+    <view class="col">
+      <view class="lab">一档分期扣款金额:</view>
+      <view class="lab val">
+        <input class="ipt" bindblur="handleBlur" placeholder="如: 2000" data-type="oneTimeInstalmentAmount" data-typeStr="一档分期扣款金额" />
+      </view>
+    </view>
+    <view class="col">
+      <view class="lab">二档分期扣款次数:</view>
+      <view class="lab val">
+        <input class="ipt" bindblur="handleBlur" placeholder="如: 3" data-type="twoTimeInstalmentCount" data-typeStr="二档分期扣款次数" />
+      </view>
+    </view>
+    <view class="col">
+      <view class="lab">二档分期扣款金额:</view>
+      <view class="lab val">
+        <input class="ipt" bindblur="handleBlur" placeholder="如: 2000" data-type="twoTimeInstalmentAmount" data-typeStr="二档分期扣款金额" />
+      </view>
+    </view>
+    <view class="col">
+      <view class="lab">三档分期扣款次数:</view>
+      <view class="lab val">
+        <input class="ipt" bindblur="handleBlur" placeholder="如: 3" data-type="threeTimeInstalmentCount" data-typeStr="三档分期扣款次数"  />
+      </view>
+    </view>
+    <view class="col">
+      <view class="lab">三档分期扣款金额:</view>
+      <view class="lab val">
+        <input class="ipt" bindblur="handleBlur" placeholder="如: 2000" data-type="threeTimeInstalmentAmount" data-typeStr="三档分期扣款金额"  />
+      </view>
+    </view>
+    <view class="col">
+      <view class="lab">第一期扣款时间:</view>
+      <view class="lab val date">
+        <input class="ipt" bindblur="handleBlur" placeholder="1-12" data-type="mouth" data-typeStr="第一期扣款时间" type="number"/> 月
+        <input class="ipt" bindblur="handleBlur" placeholder="1-31" data-type="day" data-typeStr="第一期扣款时间" type="number"/> 日
+      </view>
+    </view>
+  </view>
+  <text class="note">
+    注: 第一期扣款时间为分期扣款的第一次扣款时间。第二次扣款时间为第一次扣款时间之后下一个月的同一天。例：第一次扣款时间为8月20日, 则第二次扣款时间为9月20日, 以此类推。
+  </text>
+
+  <view class="btn-group">
+    <view class="btn" bindtap="handleDeduct">开始分期扣款</view>
+    <view class="btn" bindtap="handleToBack">取消</view>
+  </view>
+</view>
+
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />

@@ -1,0 +1,156 @@
+<view class="info-container">
+  <view class="cord-box" bindtap="handleOpenSheet" data-type="idCord">
+    <block wx:if="{{!hasIdCard}}">
+      <view class="camera-icon">
+        <image class="camera" src="/static/img/camera.png" />
+      </view>
+      <text>拍摄身份证正面</text>
+    </block>
+    <block wx:else>
+      <image class="cordImg" src="{{idCardUrl}}" />
+    </block>
+  </view>
+  <view class="cord-box" bindtap="handleOpenSheet" data-type="bankCord">
+    <block wx:if="{{!hasBankCord}}">
+      <view class="camera-icon">
+        <image class="camera" src="/static/img/camera.png" />
+      </view>
+      <text>拍摄银行卡正面</text>
+    </block>
+    <block wx:else>
+      <image class="cordImg" src="{{bankCordUrl}}" />
+    </block>
+  </view>
+
+  <view class="info">
+    <van-field
+      input-class="ipt"
+      left-icon="contact"
+      value="{{ formInfo.info_name }}"
+      placeholder="姓名"
+      data-type="info_name"
+      bind:change="handleInputValue"
+    />
+    <van-field
+      input-class="ipt"
+      left-icon="contact"
+      value="{{ formInfo.info_idCard }}"
+      data-type="info_idCard"
+      placeholder="身份证号"
+      bind:change="handleInputValue"
+    />
+    <van-field
+      input-class="ipt"
+      left-icon="contact"
+      value="{{ formInfo.info_bankCard }}"
+      data-type="info_bankCard"
+      placeholder="客户银行卡号"
+      bind:change="handleInputValue"
+    />
+    
+    <van-field
+      input-class="ipt"
+      left-icon="contact"
+      value="{{ formInfo.info_bankName }}"
+      data-type="info_bankName"
+      placeholder="银行卡开户支行选择"
+      bind:focus="handleShowBankList"
+    />
+
+    <van-field
+      input-class="ipt"
+      left-icon="contact"
+      value="{{ formInfo.info_bankPhone }}"
+      data-type="info_bankPhone"
+      placeholder="客户银行卡预留电话"
+      bind:change="handleInputValue"
+    />
+    
+    <van-field
+      input-class="ipt"
+      left-icon="contact"
+      value="{{ formInfo.info_money }}"
+      data-type="info_money"
+      type="number"
+      placeholder="贷款额度"
+      bind:change="handleInputValue"
+    />
+
+    <van-field
+      input-class="ipt"
+      left-icon="contact"
+      value="{{ formInfo.info_point }}"
+      data-type="info_point"
+      placeholder="服务费比例(如：填写20位20%)"
+      bind:change="handleInputValue"
+    />
+  </view>
+
+  <view class="btn-box" bindtap="handleNext">下一步</view>
+</view>
+
+<van-dialog
+  use-slot
+  title="请确认签约合同个人信息"
+  show="{{ showDialog }}"
+  show-cancel-button
+  bind:close="handleCloseDialog"
+  bind:confirm="hadnleCreateInfo"
+>
+  <view class="dialog">
+    <view class="col">
+      <text class="col-lab">姓名:</text>
+      <text >{{formInfo.info_name}}</text>
+    </view>
+    <view class="col">
+      <text class="col-lab">身份证号:</text>
+      <text >{{formInfo.info_idCard}}</text>
+    </view>
+    <view class="col">
+      <text class="col-lab">银行卡号:</text>
+      <text >{{formInfo.info_bankCard}}</text>
+    </view>
+    <view class="col">
+      <text class="col-lab">手机号:</text>
+      <text >{{formInfo.info_bankPhone}}</text>
+    </view>
+    <view class="col">
+      <text class="col-lab">开户行:</text>
+      <text >{{formInfo.info_bankName}}</text>
+    </view>
+    <view class="col">
+      <text class="col-lab">贷款额度:</text>
+      <text >{{formInfo.info_money}}</text>
+    </view>
+    <view class="col">
+      <text class="col-lab">服务费比例:</text>
+      <text >{{formInfo.info_point}}</text>
+    </view>
+  </view>
+</van-dialog>
+
+<!-- 银行列表 -->
+<van-popup show="{{ showPicker }}" position="bottom" overlay="{{ false }}">
+  <van-picker
+    show-toolbar="{{true}}"
+    title="请选择"
+    columns="{{ bankList }}"
+    bind:cancel="onCancel"
+    bind:confirm="onConfirm"
+  />
+</van-popup>
+
+<!-- 选择上传方式 -->
+<van-action-sheet
+  show="{{ showSheet }}"
+  actions="{{ actions }}"
+  bind:close="handleCloseSheet"
+  bind:select="handSelectSheet"
+/>
+
+<!-- 未输入提示 -->
+<van-toast id="van-toast" />
+
+<block wx:if="{{loading}}">
+  <view class="mask"></view>
+</block>

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "分期扣款信息",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "van-toast": "/npmComponent/dist/toast/index",
+    "van-dialog": "/npmComponent/dist/dialog/index",
+    "van-action-sheet": "/npmComponent/dist/action-sheet/index",
+    "van-datetime-picker": "/npmComponent/dist/datetime-picker/index"
+  }
+}

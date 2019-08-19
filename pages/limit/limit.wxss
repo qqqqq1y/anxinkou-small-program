@@ -1,0 +1,49 @@
+page {
+  min-height: 100%;
+  background: #FFF;
+}
+
+.limit-container {
+  min-height: 100%;
+}
+
+.title-box {
+  display: flex;
+  width: 100%;
+  height: 96rpx;
+  background: #EBEFF8;
+  align-items: center;
+}
+
+.title {
+  width: 49.5%;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #000;
+}
+
+.line {
+  width: 1px;
+  height: 100%;
+  background: #FFF;
+}
+
+.main {
+  margin-top: 8rpx;
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  height: 96rpx;
+  align-items: center;
+  border-top: 2px solid #EBEFF8;
+}
+
+.item-val {
+  width: 50%;
+  text-align: center;
+  font-size: 30rpx;
+  color: #000;
+}

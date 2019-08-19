@@ -1,0 +1,21 @@
+<view class='covers-container'>
+  <!-- 签名画布 -->
+  <canvas
+    class="canvas"
+    id="canvas"
+    canvas-id="canvas"
+    disable-scroll="true"
+    bindtouchstart="canvasStart"
+    bindtouchmove="canvasMove"
+    bindtouchend="canvasEnd"
+    touchcancel="canvasEnd"
+    binderror="canvasIdErrorCallback">
+  </canvas>
+
+  <view class='buttonBox'>
+    <view bindtap='clickMe' class='addbutton btn'>完成</view>
+    <view type="default" class='delbutton btn' bindtap="cleardraw">清除</view>
+  </view>
+</view>
+
+<van-toast id="van-toast" />

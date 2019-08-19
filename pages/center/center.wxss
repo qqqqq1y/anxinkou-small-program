@@ -1,0 +1,129 @@
+page {
+  height: 100%;
+  background: #EFEFF4;
+}
+
+.my-container {
+  height: 100%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 400rpx;
+  background: #FF6A6E;
+  color: #FFF;
+}
+
+.avatar {
+  margin: 36rpx 0;
+  width: 150rpx;
+  height: 150rpx;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  border-radius: 150rpx;
+}
+
+.name {
+  margin-bottom: 24rpx;
+}
+
+.main {
+  margin-top: 12rpx;
+  background: #FFF;
+}
+
+.col {
+  display: flex;
+  padding: 0 12rpx;
+}
+
+.col-bor {
+  display: flex;
+  width: 100%;
+  height: 90rpx;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+  border-bottom: 1px solid #E7E9E8;
+}
+
+.col-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.col-lab {
+  width: 150rpx;
+  padding-right: 10rpx;
+  text-align: right;
+}
+
+.col-val {
+  flex: 1;
+  padding-right: 12rpx;
+  text-align: right;
+}
+
+.arrow {
+  position: relative;
+}
+
+.arrow:before {
+  content: '';
+  position: absolute;
+  top: -12rpx;
+  right: 12rpx;
+  width: 0;
+  height: 0;
+  border-left: 10px solid #E4E4E2;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent; 
+}
+
+.arrow:after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 8px;
+  width: 0;
+  height: 0;
+  border-bottom: 9px solid transparent;
+  border-left: 9px solid #fff;
+  border-top: 9px solid transparent; 
+}
+
+.col-red {
+  color: #D8626E;
+}
+
+.about {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.opera {
+  text-align: left;
+}
+
+.code {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.logout {
+  width: 100%;
+  height: 72rpx;
+  margin-top: 24rpx;
+  text-align: center;
+  line-height: 72rpx;
+  background: #FFF;
+  font-size: 32rpx;
+  color: #D8626E;
+}

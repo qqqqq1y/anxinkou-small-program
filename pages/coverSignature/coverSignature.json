@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#FC3B40",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "客户签名",
+  "backgroundColor": "#EBEFF8",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "van-toast": "/npmComponent/dist/toast/index"
+  }
+}
