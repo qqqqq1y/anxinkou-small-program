@@ -1,0 +1,35 @@
+/* 公共样式, 覆盖默认样式 */
+
+.container {
+  width: 100%;
+  min-height: 100%;
+}
+
+.login-container {
+  .van-cell-group {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .van-cell__value, .van-cell__value--alone {
+    display: flex;
+    align-items: center;
+    .van-field__body {
+      width: 100%;
+    }
+  }
+
+  .van-checkbox__label {
+    color: #fff !important;
+  }
+
+  .van-uploader {
+    width: 100%;
+    .van-uploader__wrapper {
+      width: 100%;
+      border: 1px dashed #ccc;
+      .van-uploader__input-wrapper {
+        width: 100% !important;
+      }
+    }
+  }
+}
