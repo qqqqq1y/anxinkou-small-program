@@ -27,4 +27,5 @@ npm run build --report
 > 全局或局部文件内安装node 8.0.0+ , 项目文件内打开命令行首次执行 npm install 下载项目运行所需要的node包
 
 > 打包: 命令行执行 npm run build 生成dist文件就是最终所需的静态资源
+
 > 运行: 命令行执行 npm run dev 浏览器打开localhost:8080(默认), 8080被占用打开命令行提示的地址
