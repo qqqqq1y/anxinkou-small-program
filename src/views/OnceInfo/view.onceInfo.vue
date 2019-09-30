@@ -142,13 +142,13 @@ export default {
       bankCardFront: '', // 上传返回的 银行卡url
       // 表单内容
       formInfo: {
-        info_name: '陈志为',
-        info_idCard: '110222198206283810',
-        info_bankCard: '6217002660002239003',
-        info_bankName: '中国建设银行',
-        info_bankPhone: '13811514028',
-        info_money: '4000',
-        info_point: '1',
+        info_name: '',
+        info_idCard: '',
+        info_bankCard: '',
+        info_bankName: '',
+        info_bankPhone: '',
+        info_money: '',
+        info_point: '',
       },
       showPopup: false, // 显示银行列表
       bankList: [], // 银行列表
@@ -213,7 +213,9 @@ export default {
         };
 
         InfoService.cordInfo(params).then((res) => {
-          console.log(res, '识别信息');
+          this.formInfo.info_name = res.name;
+          this.formInfo.info_idCard = res.idcardId;
+          this.formInfo.info_bankCard = res.bankAccount;
         });
       }
     },
@@ -303,12 +305,13 @@ export default {
           contractId: this.contractId
         };
 
+        this.lastShowInfo = false;
         this.$router.push({ name: 'contractImg', params: a });
       });
     },
 
     handleCloseLastBox () {
-
+      this.lastShowInfo = false;
     },
 
     // toast 文字提示

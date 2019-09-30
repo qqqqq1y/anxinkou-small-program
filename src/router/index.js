@@ -22,55 +22,55 @@ Vue.use(Router);
 
 const routes = [
   {
-    path: '/',
+    path: '/web/home',
     name: 'home',
     component: Home
   }, {
-    path: '/bankLimit',
+    path: '/web/bankLimit',
     name: 'bankLimit',
     component: bankLimit
   }, {
-    path: '/onceInfo',
+    path: '/web/onceInfo',
     name: 'onceInfo',
     component: OnceInfo
   }, {
-    path: '/moreInfo',
+    path: '/web/moreInfo',
     name: 'moreInfo',
     component: MoreInfo
   }, {
-    path: '/contract',
+    path: '/web/contract',
     name: 'contract',
     component: Contract
   }, {
-    path: '/center',
+    path: '/web/center',
     name: 'center',
     component: Center
   }, {
-    path: '/sign',
+    path: '/web/sign',
     name: 'sign',
     component: Sign
   }, {
-    path: '/contractImg',
+    path: '/web/contractImg',
     name: 'contractImg',
     component: ContractImg
   }, {
-    path: '/detailOneTimes',
+    path: '/web/detailOneTimes',
     name: 'detailOneTimes',
     component: DetailOneTimes
   }, {
-    path: '/detailMoreTimes',
+    path: '/web/detailMoreTimes',
     name: 'detailMoreTimes',
     component: DetailMoreTimes
   }, {
-    path: '/iframe',
+    path: '/web/iframe',
     name: 'iframe-page',
     component: Iframe
   }, {
-    path: '/iframeAuth',
+    path: '/web/iframeAuth',
     name: 'iframeAuth',
     component: IframeAuth
   }, {
-    path: '/login',
+    path: '/web/',
     name: 'login',
     component: Login
   }

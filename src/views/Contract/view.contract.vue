@@ -262,8 +262,6 @@
       <div class="mask"></div>
       <img class="img" :src="contractUrl" />
     </div>
-
-
   </div>
 </template>
 

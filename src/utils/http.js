@@ -35,7 +35,7 @@ instance.interceptors.response.use(function (response) {
   if (response.data.code === '1003') {
     localStorage.removeItem('token');
 
-    window.location.hash = '#/login';
+    window.location.hash = '#/web/login';
   }
 
   return response.data;
