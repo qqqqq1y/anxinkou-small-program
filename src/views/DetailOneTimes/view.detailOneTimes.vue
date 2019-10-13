@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <navigation :showBack="true" :title="'委托代扣款合同'"></navigation>
+    <navigation :showBack="true" :title="'委托服务费扣款'"></navigation>
     <div class="times-container">
       <div class="info">
         <div class="col">

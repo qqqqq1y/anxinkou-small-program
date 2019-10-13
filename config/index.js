@@ -16,14 +16,14 @@ module.exports = {
       // changeOrigin: true
 
       '/': {
-        target: 'http://www.weiqiangtech.com',
+        target: 'http://test.weiqiangtech.com',
         changeOrigin: true,
         pathRewrite: {
           '^/': '/',
         }
       },
       '/uuuuu': {
-        target: 'http://www.weiqiangtech.com',
+        target: 'http://test.weiqiangtech.com',
         changeOrigin: true
       },
     },
@@ -66,7 +66,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    assetsPublicPath: '/web/',
 
     /**
      * Source Maps

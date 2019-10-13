@@ -2,7 +2,7 @@
   <div class="container">
     <div class="login-container">
       <div class="logo-box">
-        <img class="logo" src="/static/img/logo.png" />
+        <img class="logo" src="../../../static/img/logo.png" alt="">
       </div>
 
       <div class="login-box">
@@ -40,8 +40,6 @@
       <div class="login-btn">
         <div class="btn" @click="handleLogin">登录</div>
       </div>
-
-      <div class="forget" @click="handleForgetPass">忘记密码?</div>
     </div>
   </div>
 
@@ -111,11 +109,7 @@ export default {
           this.$router.push({ name: 'home' });
         }
       });
-    },
-
-    handleForgetPass () {
-      console.log('忘记密码');
-    },
+    }
   }
 };
 </script>

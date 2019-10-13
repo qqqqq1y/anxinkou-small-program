@@ -4,7 +4,7 @@ import axios from 'axios';
 // http://www.weiqiangtech.com/
 
 const instance = axios.create({
-  baseURL: 'http://test.weiqiangtech.com/',
+  baseURL: 'http://test.weiqiangtech.com/', // 代理baseUrl
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ instance.interceptors.response.use(function (response) {
   if (response.data.code === '1003') {
     localStorage.removeItem('token');
 
-    window.location.hash = '#/web/login';
+    window.location.hash = '/web/login';
   }
 
   return response.data;

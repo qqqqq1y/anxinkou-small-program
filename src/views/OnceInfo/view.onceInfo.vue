@@ -7,7 +7,7 @@
           <div class="cord-box">
             <div v-if="!hasIdCard">
               <div class="camera-icon">
-                <img class="camera" src="/static/img/camera.png" />
+                <img class="camera" src="../../../static/img/camera.png" />
               </div>
               <div>拍摄身份证正面</div>
             </div>
@@ -19,7 +19,7 @@
           <div class="cord-box">
             <div v-if="!hasBankCord">
               <div class="camera-icon">
-                <img class="camera" src="/static/img/camera.png" />
+                <img class="camera" src="../../../static/img/camera.png" />
               </div>
               <div>拍摄银行卡正面</div>
             </div>
@@ -401,6 +401,10 @@ export default {
   .camera {
     width: 4rem;
     height: 3.2rem;
+  }
+  .cordImg {
+    width: 100%;
+    height: 100%;
   }
   .dialog {
     margin: 1rem;

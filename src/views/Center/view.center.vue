@@ -4,7 +4,7 @@
     <div class="my-container">
       <div class="info">
         <div class="avatar">
-          <img class="img" src="/static/img/default.png" />
+          <img class="img" src="../../../static/img/default.png" />
         </div>
         <div class="name">{{ info.adminName }}</div>
         <div >{{ info.jobCode }}</div>
@@ -13,51 +13,51 @@
       <div class="main">
         <div class="col">
           <div class="col-bor">
-            <img class="col-icon" src="/static/img/icon_opera.png" />
+            <img class="col-icon" src="../../../static/img/icon_opera.png" />
             <div class="col-lab">所属公司:</div>
             <div class="col-val opera">北京无线科技有限公司</div>
           </div>
         </div>
         <div class="col">
           <div class="col-bor">
-            <img class="col-icon about" src="/static/img/icon_about.png" />
+            <img class="col-icon about" src="../../../static/img/icon_about.png" />
             <div class="col-lab" style="text-align: left">关于我们:</div>
             <div class="col-val arrow"></div>
           </div>
         </div>
         <div class="col">
           <div class="col-bor">
-            <img class="col-icon" src="/static/img/icon_change_pwd.png" />
+            <img class="col-icon" src="../../../static/img/icon_change_pwd.png" />
             <div class="col-lab">密码修改:</div>
             <div class="col-val arrow"></div>
           </div>
         </div>
         <div class="col">
           <div class="col-bor">
-            <img class="col-icon" src="/static/img/icon_version.png" />
+            <img class="col-icon" src="../../../static/img/icon_version.png" />
             <div class="col-lab">当前版本:</div>
             <div class="col-val col-red">V.1.3</div>
           </div>
         </div>
         <div class="col">
           <div class="col-bor">
-            <img class="col-icon" src="/static/img/icon_phone.png" />
+            <img class="col-icon" src="../../../static/img/icon_phone.png" />
             <div class="col-lab">客服电话:</div>
             <div class="col-val col-red">4001002323</div>
           </div>
         </div>
         <div class="col">
           <div class="col-bor">
-            <img class="col-icon" src="/static/img/icon_download.png" />
+            <img class="col-icon" src="../../../static/img/icon_download.png" />
             <div class="col-lab">下载专区:</div>
             <div class="col-val">
-              <img class="code" src="/static/img/icon_deminsion.png" />
+              <img class="code" src="../../../static/img/icon_deminsion.png" />
             </div>
           </div>
         </div>
       </div>
 
-      <div class="logout">退出登录</div>
+      <div class="logout" @click="handleLogout">退出登录</div>
     </div>
 
   </div>
@@ -73,6 +73,14 @@ export default {
   },
   mounted () {
     this.info = JSON.parse(localStorage.getItem('userInfo'));
+  },
+  methods: {
+    handleLogout () {
+      localStorage.removeItem('userInfo');
+      localStorage.removeItem('token');
+
+      this.$router.push({ name: 'login' });
+    }
   }
 };
 </script>

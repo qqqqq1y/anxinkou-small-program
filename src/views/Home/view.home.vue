@@ -3,15 +3,15 @@
     <navigation :title="'首页'"></navigation>
     <div class='entrance'>
       <div class="item-box" @click="handleToEntryInformation">
-        <img class="img-tip" src="/static/img/single.jpg" />
+        <img class="img-tip" src="../../../static/img/single.jpg" />
         <div class="title">单次扣款信息录入</div>
       </div>
       <div class="item-box" @click="handleToTimesInformation">
-        <img class="img-tip" src="/static/img/single.jpg" />
+        <img class="img-tip" src="../../../static/img/single.jpg" />
         <div class="title">分期扣款信息录入</div>
       </div>
       <div class="item-box" @click="handleToLimit">
-        <img class="img-tip" src="/static/img/cardinfo.jpg" />
+        <img class="img-tip" src="../../../static/img/cardinfo.jpg" />
         <div class="title">银行卡扣款限额信息</div>
       </div>
     </div>

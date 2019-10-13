@@ -78,5 +78,6 @@ const routes = [
 
 
 export default new Router({
+  mode: 'history', // hastory hash切换
   routes
 });
