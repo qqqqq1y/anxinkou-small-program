@@ -22,12 +22,21 @@ export default {
     };
   },
   mounted () {
-    this.showTab = this.$route.name === 'login' ? false : true;
-    this.showTab = this.$route.name === 'sign' ? false : true;
+    this.showTab = (this.$route.name === 'login' || this.$route.name === 'sign') ? false : true;
   },
   watch: {
     $route (to) {
-      this.showTab = to.name !== 'sign' ? true : false;
+      if (to.name !== 'sign') {
+        this.showTab = true;
+      } else {
+        this.showTab = false;
+      }
+
+      if (to.name !== 'login') {
+        this.showTab = true;
+      } else {
+        this.showTab = false;
+      }
     }
   }
 };

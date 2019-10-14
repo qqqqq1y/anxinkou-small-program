@@ -18,7 +18,6 @@
         <span @click="handleSign">提交签名</span>
       </div>
     </div>
-    <!-- <div style="width: 100%; height: 50px;"></div> -->
   </div>
 </template>
 

@@ -295,18 +295,26 @@ export default {
 
     createContract (params) {
       InfoService.createContract(params).then((res) => {
-        this.contractImage = res.result.contractImage;
-        this.contractId = res.result.id;
+        if (res.code === '1000') {
+          this.contractImage = res.result.contractImage;
+          this.contractId = res.result.id;
 
-        const a = {
-          progress: 1,
-          contractImage: this.contractImage,
-          customId: this.customId,
-          contractId: this.contractId
-        };
+          const a = {
+            progress: 1,
+            contractImage: this.contractImage,
+            customId: this.customId,
+            contractId: this.contractId
+          };
 
-        this.lastShowInfo = false;
-        this.$router.push({ name: 'contractImg', params: a });
+          this.lastShowInfo = false;
+          this.$router.push({ name: 'contractImg', params: a });
+        } else {
+          Toast({
+            type: 'fail',
+            message: '注册富有账户失败',
+            duration: 2000
+          });
+        }
       });
     },
 

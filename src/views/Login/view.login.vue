@@ -23,6 +23,7 @@
             placeholder-style="color: #fff"
             left-icon="close"
             placeholder="请输入密码"
+            type="password"
             @input="handlePassword"
           />
         </van-cell-group>
@@ -60,6 +61,11 @@ export default {
   },
   mounted () {
     const user = localStorage.getItem('username');
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      this.$router.push({ name: 'home' });
+    }
 
     if (user) {
       this.username = user;
@@ -169,15 +175,6 @@ export default {
     border-radius: 3.25rem;
     font-size: 1.4rem;
     color: #FC3B40;
-  }
-
-  .forget {
-    margin-top: 1.8rem;
-    height: 3.6rem;
-    line-height: 3.6rem;
-    text-align: right;
-    font-size: 1rem;
-    color: #fff;
   }
 
 </style>

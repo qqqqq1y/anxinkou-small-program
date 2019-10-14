@@ -8,6 +8,13 @@
 .login-container {
   .van-cell-group {
     background-color: rgba(255, 255, 255, 1);
+    .van-cell {
+      .van-field__body {
+        height: 2rem;
+        line-height: 2rem !important;
+        font-size: 1.2rem !important;
+      }
+    }
   }
 
   .van-cell__value, .van-cell__value--alone {
@@ -32,4 +39,6 @@
       }
     }
   }
+
+
 }

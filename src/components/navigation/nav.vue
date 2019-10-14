@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     {{ title }}
-    <img v-if="showBack" @click="handleBack" class="img" src="/static/img/back.png" />
+    <img v-if="showBack" @click="handleBack" class="img" src="../../../static/img/back.png" />
   </div>
 </template>
 
