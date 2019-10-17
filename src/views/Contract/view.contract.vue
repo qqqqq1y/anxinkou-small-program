@@ -433,7 +433,7 @@ export default {
 
       ContractService.getContractList(params).then((res) => {
         res.result.list.forEach(item => {
-          // item.createTime = this.turnTime(item.createTime)
+          item.createTime = this.changeTime(item.createTime);
           switch (item.deductedStatus) {
             case 0:
               item.deductedStatus = '未代扣';
@@ -476,6 +476,11 @@ export default {
 
         this.loadMoreTxt = this.total > nowLength ? '加载更多...' : '暂无更多数据';
       });
+    },
+    changeTime (time) {
+      const date = new Date(time); // 增加8小时
+
+      return date.toJSON().substr(0, 16).replace('T', ' ');
     }
   },
   watch: {

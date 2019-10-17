@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import InfoService from '@/api/info';
+
 export default {
   name: 'contractImg',
   data () {
@@ -34,13 +36,22 @@ export default {
   },
   methods: {
     handleToCoverSign () {
-      const a = {
-        contractImage: this.contractImage,
-        customId: this.customId,
-        contractId: this.contractId
+      const params = {
+        customId: parseInt(this.customId),
+        progress: 1,
       };
 
-      this.$router.push({ name: 'sign', params: a });
+      InfoService.uploadSign(`/contract/sign/${this.contractId}`, params).then((res) => {
+        if (res.code === '1000' || res.code === '2004') {
+          const a = {
+            contractImage: this.contractImage,
+            customId: this.customId,
+            contractId: this.contractId
+          };
+
+          this.$router.push({ name: 'sign', params: a });
+        }
+      });
     },
 
     handleToNext () {

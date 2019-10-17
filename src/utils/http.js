@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import Qs from 'qs';
 
-// http://www.weiqiangtech.com/
+// http://test.weiqiangtech.com/
 
 const instance = axios.create({
   baseURL: 'http://test.weiqiangtech.com/', // 代理baseUrl

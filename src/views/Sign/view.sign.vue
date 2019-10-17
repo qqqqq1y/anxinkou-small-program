@@ -15,7 +15,7 @@
       ></canvas>
       <div class="btnBox">
         <span @click="overwrite">重写</span>
-        <span @click="handleSign">提交签名</span>
+        <span @click="againSign">提交签名</span>
       </div>
     </div>
   </div>
@@ -62,25 +62,9 @@ export default {
     this.stage_info = canvas.getBoundingClientRect();
   },
   methods: {
-    handleSign () {
+    againSign () {
       const base64 = this.$refs.canvasF.toDataURL("image/png");
 
-      const params = {
-        customId: parseInt(this.customId),
-        progress: 1,
-      }
-
-      InfoService.uploadSign(`/contract/sign/${this.contractId}`, params).then((res) => {
-        if (res.code === '1000') {
-          this.againSign(base64);
-        }
-
-        if (res.code === '2004') {
-          // 提示不要重复签订
-        }
-      });
-    },
-    againSign (base64) {
       const params = {
         customId: parseInt(this.customId),
         progress: 2,
@@ -250,14 +234,22 @@ export default {
 .btnBox {
   position: absolute;
   display: flex;
-  width: 100%;
+  margin: 0 1rem;
+  width: calc(100% - 2rem);
   height: 2.4rem;
   bottom: 1rem;
   justify-content: space-between;
   align-items: center;
   span {
+    width: 5.6rem;
+    height: 100%;
+    line-height: 2.4rem;
+    text-align: center;
     padding: 0 1rem;
+    background: #FC3B40;
+    border-radius: 0.2rem;
     font-size: 1.2rem;
+    color: #FFF;
   }
 }
 </style>

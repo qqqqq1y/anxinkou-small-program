@@ -28,12 +28,12 @@ export default {
     $route (to) {
       if (to.name !== 'sign') {
         this.showTab = true;
-      } else {
-        this.showTab = false;
-      }
 
-      if (to.name !== 'login') {
-        this.showTab = true;
+        if (to.name !== 'login') {
+          this.showTab = true;
+        } else {
+          this.showTab = false;
+        }
       } else {
         this.showTab = false;
       }
