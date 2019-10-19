@@ -63,7 +63,9 @@ export default {
   },
   methods: {
     againSign () {
-      const base64 = this.$refs.canvasF.toDataURL("image/png");
+      let base64 = this.$refs.canvasF.toDataURL("image/png");
+
+      base64 = base64.replace('data:image/png;base64,', '');
 
       const params = {
         customId: parseInt(this.customId),
@@ -77,7 +79,7 @@ export default {
 
           const a = {
             progress: 2,
-            contractImage: this.contractImage,
+            contractImage: res.result.contractImage,
             customId: this.customId,
             contractId: this.contractId
           };
