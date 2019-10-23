@@ -136,7 +136,9 @@ export default {
         } else {
           Dialog.alert({
             message: res.msg
-          }).then(() => {});
+          }).then(() => {
+            this.$router.push({ name: 'contract', params: { active: 1 } });
+          });
         }
       });
     },

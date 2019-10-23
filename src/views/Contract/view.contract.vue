@@ -297,8 +297,6 @@ export default {
     this.active = parseInt(this.$route.params.active || this.$route.query.active) || 0;
     this.search.contractStatus = parseInt(this.$route.params.active || this.$route.query.active);
 
-    // console.log(this.active);
-
     this.getContractList();
   },
   methods: {
@@ -336,13 +334,22 @@ export default {
     handleInfo (info) {
       if (info.progress === 0) { // progress == 0 信息录入完毕,  未签名
         const a = {
+          progress: 1,
+          contractImage: info.contractImage,
+          customId: info.customId,
+          contractId: info.contractId
+        };
+
+        this.$router.push({ name: 'contractImg', params: a });
+      } else if (info.progress === 1) { // progress == 1 电子签名页面
+        const a = {
           contractImage: info.contractImage,
           customId: info.customId,
           contractId: info.contractId
         };
 
         this.$router.push({ name: 'sign', params: a });
-      } else if (info.progress === 1 || info.progress === 2) { // progress == 1 已签名  签约页面
+      } else { // progress == 2 签约页面
         this.$router.push({ name: 'iframe-page', params: { contractId: info.contractId } });
       }
     },
@@ -478,7 +485,7 @@ export default {
       });
     },
     changeTime (time) {
-      const date = new Date(time); // 增加8小时
+      const date = new Date(time + 8 * 60 * 60 * 1000); // 增加8小时
 
       return date.toJSON().substr(0, 16).replace('T', ' ');
     }

@@ -2,9 +2,10 @@ import axios from 'axios';
 // import Qs from 'qs';
 
 // http://test.weiqiangtech.com/
+// http://www.weiqiangtech.com/
 
 const instance = axios.create({
-  baseURL: 'http://test.weiqiangtech.com/', // 代理baseUrl
+  baseURL: '/', // 代理baseUrl
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',

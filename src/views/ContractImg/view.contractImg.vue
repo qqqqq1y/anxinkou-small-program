@@ -55,7 +55,7 @@ export default {
     },
 
     handleToNext () {
-
+      this.$router.push({ name: 'contract', params: { active: 1 } });
     }
   }
 };
