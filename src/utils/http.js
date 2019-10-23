@@ -5,7 +5,7 @@ import axios from 'axios';
 // http://www.weiqiangtech.com/
 
 const instance = axios.create({
-  baseURL: '/', // 代理baseUrl
+  baseURL: 'http://www.weiqiangtech.com/', // 代理baseUrl
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
