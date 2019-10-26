@@ -36,7 +36,7 @@ export default {
 
       const iframedoc = iframe.contentDocument || iframe.contentWindow.document;
 
-      InfoService.getAuthIframe(`/contract/signAuth/1374`).then((res) => {
+      InfoService.getAuthIframe(`/contract/signAuth/${this.contractId}`).then((res) => {
         iframedoc.body.innerHTML = res;
 
         iframedoc.forwardForm.submit();
@@ -53,7 +53,7 @@ export default {
         this.timer = null;
       }
 
-      InfoService.getResult(`/contract/signIdentify/1374`).then((res) => {
+      InfoService.getResult(`/contract/signIdentify/${this.contractId}`).then((res) => {
         if (res.result.authCode === 'no') {
           this.timer = setTimeout(() => {
             this.searchAuthResult();

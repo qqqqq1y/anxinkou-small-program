@@ -36,7 +36,7 @@ export default {
 
       const iframedoc = iframe.contentDocument || iframe.contentWindow.document;
 
-      InfoService.getIframe(`/contract/signFuiou/1374`).then((res) => {
+      InfoService.getIframe(`/contract/signFuiou/${this.contractId}`).then((res) => {
         if (res.code === '2004') {
           Toast.success('合同已签约');
 
@@ -59,7 +59,7 @@ export default {
         this.timer = null;
       }
 
-      InfoService.getResult(`/contract/signIdentify/1374`).then((res) => {
+      InfoService.getResult(`/contract/signIdentify/${this.contractId}`).then((res) => {
         if (res.result.signCode === 'no') {
           this.timer = setTimeout(() => {
             this.searchSignResult();
@@ -72,7 +72,8 @@ export default {
           if (res.result.signCode === '0000') {
             Toast.success('签约成功');
 
-            this.$router.push({ name: 'iframeAuth', params: { contractId: this.contractId } });
+            // this.$router.push({ name: 'iframeAuth', params: { contractId: this.contractId } });
+            this.$router.push({ name: 'contract', params: { active: 1 } });
           } else {
             Toast.success('签约失败');
 

@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { Toast } from 'vant';
 import InfoService from '@/api/info';
 
 export default {
@@ -55,7 +56,15 @@ export default {
     },
 
     handleToNext () {
-      this.$router.push({ name: 'contract', params: { active: 1 } });
+      InfoService.getIframe(`/contract/signFuiou/${this.contractId}`).then((res) => {
+        if (res.code === '2004') {
+          Toast.success('合同已签约');
+
+          this.$router.push({ name: 'contract', params: { active: 1 } });
+        } else {
+          this.$router.push({ name: 'iframe-page', params: { contractId: this.contractId } });
+        }
+      });
     }
   }
 };
