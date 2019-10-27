@@ -239,7 +239,7 @@ export default {
   margin: 0 1rem;
   width: calc(100% - 2rem);
   height: 2.4rem;
-  bottom: 1rem;
+  top: 1rem;
   justify-content: space-between;
   align-items: center;
   span {

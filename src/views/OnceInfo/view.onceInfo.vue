@@ -213,9 +213,9 @@ export default {
         };
 
         InfoService.cordInfo(params).then((res) => {
-          this.formInfo.info_name = res.name;
-          this.formInfo.info_idCard = res.idcardId;
-          this.formInfo.info_bankCard = res.bankAccount;
+          this.formInfo.info_name = res.result.name;
+          this.formInfo.info_idCard = res.result.idcardId;
+          this.formInfo.info_bankCard = res.result.bankAccount;
         });
       }
     },
