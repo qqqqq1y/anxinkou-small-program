@@ -11,7 +11,8 @@
               </div>
               <div>拍摄身份证正面</div>
             </div>
-            <img v-else class="cordImg" :src="idCardFront" />
+            <!-- <img v-else class="cordImg" :src="idCardFront" /> -->
+            <img v-else class="cordImg" :src="blobIdCardFront" />
           </div>
         </van-uploader>
 
@@ -23,7 +24,8 @@
               </div>
               <div>拍摄银行卡正面</div>
             </div>
-            <img v-else class="cordImg" :src="bankCardFront" />
+            <!-- <img v-else class="cordImg" :src="bankCardFront" /> -->
+            <img v-else class="cordImg" :src="blobBankCardFront" />
           </div>
         </van-uploader>
 
@@ -128,6 +130,7 @@
 </template>
 
 <script>
+import Compressor from 'compressorjs';
 import { Toast } from 'vant';
 import LoginService from '@/api/login';
 import InfoService from '@/api/info';
@@ -140,6 +143,10 @@ export default {
       hasBankCord: false, // 已上传银行卡
       idCardFront: '', // 上传返回的 身份证url
       bankCardFront: '', // 上传返回的 银行卡url
+
+      blobIdCardFront: '', // 身份证临时文件
+      blobBankCardFront: '', // 银行卡临时文件
+
       // 表单内容
       formInfo: {
         info_name: '',
@@ -172,19 +179,45 @@ export default {
     this.getBankList();
   },
   methods: {
+    // 图片转换临时文件
+    changeFile (name, file) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        this.$data[name] = window.URL.createObjectURL(new Blob([e.target.result]));
+      };
+      reader.readAsArrayBuffer(file);
+    },
+
+
     // 上传身份证
     handleReadIdcord (file) {
       this.hasIdCard = true;
 
-      let formData = new FormData();
+      this.changeFile('blobIdCardFront', file.file);
 
-      formData.append('avatar_data', '{"x": 0, "y": 0, "width": 1000, "height": 1000}');
-      formData.append('avatar_file', file.file);
+      let that = this;
 
-      InfoService.upLoad(formData).then((res) => {
-        this.idCardFront = res.result;
+      // eslint-disable-next-line
+      new Compressor(file.file, {
+        quality: 0.4,
+        success (result) {
+          // blob转file
+          const upLoadFile = new File([result], `file_${new Date().getTime()}.jpeg`);
 
-        this.getCordInfo();
+          const formData = new FormData();
+
+          formData.append('avatar_data', '{"x": 0, "y": 0, "width": 1000, "height": 1500}');
+          formData.append('avatar_file', upLoadFile);
+
+          InfoService.upLoad(formData).then((res) => {
+            that.idCardFront = res.result;
+
+            that.getCordInfo();
+          });
+        },
+        error (err) {
+          console.log(err.message);
+        },
       });
     },
 
@@ -192,15 +225,31 @@ export default {
     handleReadBankCord (file) {
       this.hasBankCord = true;
 
-      let formData = new FormData();
+      this.changeFile('blobBankCardFront', file.file);
 
-      formData.append('avatar_data', '{"x": 0, "y": 0, "width": 1000, "height": 1000}');
-      formData.append('avatar_file', file.file);
+      let that = this;
 
-      InfoService.upLoad(formData).then((res) => {
-        this.bankCardFront = res.result;
+      // eslint-disable-next-line
+      new Compressor(file.file, {
+        quality: 0.4,
+        success (result) {
+          // blob转file
+          const upLoadFile = new File([result], `file_${new Date().getTime()}.jpeg`);
 
-        this.getCordInfo();
+          const formData = new FormData();
+
+          formData.append('avatar_data', '{"x": 0, "y": 0, "width": 1000, "height": 1500}');
+          formData.append('avatar_file', upLoadFile);
+
+          InfoService.upLoad(formData).then((res) => {
+            that.bankCardFront = res.result;
+
+            that.getCordInfo();
+          });
+        },
+        error (err) {
+          console.log(err.message);
+        },
       });
     },
 
@@ -393,7 +442,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 12rem;
+    min-height: 15rem;
     border-radius: 0.8rem;
     background: #FFF;
     font-size: 1.2rem;
@@ -411,8 +460,11 @@ export default {
     height: 3.2rem;
   }
   .cordImg {
+    // width: 100%;
+    // height: 100%;
+
     width: 100%;
-    height: 100%;
+    height: 15rem;
   }
   .dialog {
     margin: 1rem;

@@ -10,6 +10,9 @@ import 'vant/lib/index.css';
 import './assets/reset.css';
 import './assets/common.scss';
 
+import VueCropper from 'vue-cropper';
+Vue.use(VueCropper);
+
 Vue.component('navigation', navigation);
 Vue.config.productionTip = false;
 

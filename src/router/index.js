@@ -17,6 +17,8 @@ import DetailOneTimes from '@/views/DetailOneTimes/view.detailOneTimes';
 import Iframe from '@/views/Iframe/view.iframe';
 import IframeAuth from '@/views/IframeAuth/view.iframeAuth';
 
+import Test from '@/views/test/view.test';
+
 Vue.use(Router);
 
 
@@ -73,11 +75,16 @@ const routes = [
     path: '/web/',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/web/test',
+    name: 'test',
+    component: Test
   }
 ];
 
 
 export default new Router({
-  mode: 'history', // hastory hash切换
+  // mode: 'history', // hastory hash切换
   routes
 });
