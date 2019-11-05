@@ -3,7 +3,7 @@
     <navigation :showBack="true" :title="'单次信息录入'"></navigation>
     <div class="info-container">
       <div class="info login-container">
-        <van-uploader :after-read="handleReadIdcord">
+        <!-- <van-uploader :after-read="handleReadIdcord">
           <div class="cord-box">
             <div v-if="!hasIdCard">
               <div class="camera-icon">
@@ -11,7 +11,6 @@
               </div>
               <div>拍摄身份证正面</div>
             </div>
-            <!-- <img v-else class="cordImg" :src="idCardFront" /> -->
             <img v-else class="cordImg" :src="blobIdCardFront" />
           </div>
         </van-uploader>
@@ -24,10 +23,11 @@
               </div>
               <div>拍摄银行卡正面</div>
             </div>
-            <!-- <img v-else class="cordImg" :src="bankCardFront" /> -->
             <img v-else class="cordImg" :src="blobBankCardFront" />
           </div>
-        </van-uploader>
+        </van-uploader> -->
+
+        <div style="width: 100%;height: 3.2rem;"></div>
 
         <van-field
           left-icon="contact"
@@ -70,10 +70,14 @@
           v-model="formInfo.info_point"
           placeholder="服务费比例(如：填写20位20%)"
         />
+
+        <van-field style="height: 0"/>
       </div>
 
-      <div class="btn-box" @click="handleNext">下一步</div>
-      <div style="width: 100%; height: 50px;"></div>
+
+      <div class="btn-box-pos" @click="handleNext">下一步</div>
+      <!-- <div class="btn-box" @click="handleNext">下一步</div>
+      <div style="width: 100%; height: 50px;"></div> -->
     </div>
 
     <!-- 银行列表 -->
@@ -171,7 +175,7 @@ export default {
     };
   },
   mounted () {
-    if (this.$route.params) {
+    if (this.$route.params && this.$route.params.contractType && this.$route.params.instalmentCount) {
       this.contractType = this.$route.params.contractType;
       this.instalmentCount = this.$route.params.instalmentCount;
     }
@@ -416,6 +420,7 @@ export default {
 <style lang="scss" scoped>
   .info-container {
     display: flex;
+    height: 100%;
     flex-direction: column;
     padding: 0 1rem;
 
@@ -428,6 +433,22 @@ export default {
     margin: 2rem 0 1rem;
     display: flex;
     padding: 0 2.4rem;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4rem;
+    background: #FC3B40;
+    font-size: 1.4rem;
+    color: #FFF;
+  }
+
+  .btn-box-pos {
+    position: absolute;
+    bottom: 80px;
+    margin: 2rem 0 1rem;
+    display: flex;
+    // padding: 0 2.4rem;
+    width: calc(100% - 2.4rem);
     height: 4rem;
     align-items: center;
     justify-content: center;

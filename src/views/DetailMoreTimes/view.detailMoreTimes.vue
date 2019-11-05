@@ -10,44 +10,44 @@
         <div class="col">
           <div class="lab">一档分期扣款次数:</div>
           <div class="lab val">
-            <input class="ipt" bindblur="handleBlur" placeholder="如: 3" v-model="form.oneTimeInstalmentCount" data-typeStr="一档分期扣款次数" />
+            <input class="ipt" bindblur="handleBlur" placeholder="如: 3" v-model="form.oneTimeInstalmentCount"/>
           </div>
         </div>
         <div class="col">
           <div class="lab">一档分期扣款金额:</div>
           <div class="lab val">
-            <input class="ipt" bindblur="handleBlur" placeholder="如: 2000" v-model="form.oneTimeInstalmentAmount" data-typeStr="一档分期扣款金额" />
+            <input class="ipt" bindblur="handleBlur" placeholder="如: 2000" v-model="form.oneTimeInstalmentAmount"/>
           </div>
         </div>
         <div class="col">
           <div class="lab">二档分期扣款次数:</div>
           <div class="lab val">
-            <input class="ipt" bindblur="handleBlur" placeholder="如: 3" v-model="form.twoTimeInstalmentCount" data-typeStr="二档分期扣款次数" />
+            <input class="ipt" bindblur="handleBlur" placeholder="如: 3" v-model="form.twoTimeInstalmentCount"/>
           </div>
         </div>
         <div class="col">
           <div class="lab">二档分期扣款金额:</div>
           <div class="lab val">
-            <input class="ipt" bindblur="handleBlur" placeholder="如: 2000" v-model="form.twoTimeInstalmentAmount" data-typeStr="二档分期扣款金额" />
+            <input class="ipt" bindblur="handleBlur" placeholder="如: 2000" v-model="form.twoTimeInstalmentAmount"/>
           </div>
         </div>
         <div class="col">
           <div class="lab">三档分期扣款次数:</div>
           <div class="lab val">
-            <input class="ipt" bindblur="handleBlur" placeholder="如: 3" v-model="form.threeTimeInstalmentCount" data-typeStr="三档分期扣款次数"  />
+            <input class="ipt" bindblur="handleBlur" placeholder="如: 3" v-model="form.threeTimeInstalmentCount"/>
           </div>
         </div>
         <div class="col">
           <div class="lab">三档分期扣款金额:</div>
           <div class="lab val">
-            <input class="ipt" bindblur="handleBlur" placeholder="如: 2000" v-model="form.threeTimeInstalmentAmount" data-typeStr="三档分期扣款金额"  />
+            <input class="ipt" bindblur="handleBlur" placeholder="如: 2000" v-model="form.threeTimeInstalmentAmount"/>
           </div>
         </div>
         <div class="col">
           <div class="lab">第一期扣款时间:</div>
           <div class="lab val date">
-            <input class="ipt" bindblur="handleBlur" placeholder="1-12" v-model="form.mouth" data-typeStr="第一期扣款时间" type="number"/> 月
-            <input class="ipt" bindblur="handleBlur" placeholder="1-31" v-model="form.day" data-typeStr="第一期扣款时间" type="number"/> 日
+            <input class="ipt" bindblur="handleBlur" placeholder="1-12" v-model="form.mouth" type="number"/> 月
+            <input class="ipt" bindblur="handleBlur" placeholder="1-31" v-model="form.day" type="number"/> 日
           </div>
         </div>
       </div>
@@ -103,8 +103,10 @@ export default {
       let noValList = [];
 
       Object.keys(this.form).forEach((key) => {
-        if (!this.form[key]) {
-          noValList.push(key);
+        if (key.indexOf('two') < 0 && key.indexOf('three') < 0) {
+          if (!this.form[key]) {
+            noValList.push(key);
+          }
         }
       });
 
@@ -150,10 +152,10 @@ export default {
       const list = [
         { lab: 'oneTimeInstalmentCount', val: '一档分期扣款次数' },
         { lab: 'oneTimeInstalmentAmount', val: '一档分期扣款金额' },
-        { lab: 'twoTimeInstalmentCount', val: '二档分期扣款次数' },
-        { lab: 'twoTimeInstalmentAmount', val: '二档分期扣款金额' },
-        { lab: 'threeTimeInstalmentCount', val: '三档分期扣款次数' },
-        { lab: 'threeTimeInstalmentAmount', val: '三档分期扣款金额' },
+        // { lab: 'twoTimeInstalmentCount', val: '二档分期扣款次数' },
+        // { lab: 'twoTimeInstalmentAmount', val: '二档分期扣款金额' },
+        // { lab: 'threeTimeInstalmentCount', val: '三档分期扣款次数' },
+        // { lab: 'threeTimeInstalmentAmount', val: '三档分期扣款金额' },
         { lab: 'mouth', val: '请输入扣款日期' },
         { lab: 'day', val: '请输入扣款日期' },
       ];

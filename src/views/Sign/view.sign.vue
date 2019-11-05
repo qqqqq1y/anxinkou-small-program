@@ -14,8 +14,8 @@
         @mouseup="mouseUp"
       ></canvas>
       <div class="btnBox">
-        <span @click="overwrite">重写</span>
-        <span @click="againSign">提交签名</span>
+        <button @click="overwrite">重写</button>
+        <button @click="againSign">提交签名</button>
       </div>
     </div>
   </div>
@@ -238,13 +238,14 @@ export default {
   display: flex;
   margin: 0 1rem;
   width: calc(100% - 2rem);
-  height: 2.4rem;
+  height: 3rem;
   top: 1rem;
   justify-content: space-between;
   align-items: center;
-  span {
-    width: 5.6rem;
+  button {
+    width: 7rem;
     height: 100%;
+    border: none;
     line-height: 2.4rem;
     text-align: center;
     padding: 0 1rem;

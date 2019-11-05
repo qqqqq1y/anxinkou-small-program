@@ -5,8 +5,8 @@
       <img class="img" :src="contractImage" alt="">
     </div>
 
-    <div v-if="progress == 1" class="btn" @click="handleToCoverSign">客户签字</div>
-    <div v-if="progress == 2" class="btn" @click="handleToNext">下一步</div>
+    <button v-if="progress == 1" class="btn" @click="handleToCoverSign">客户签字</button>
+    <button v-if="progress == 2" class="btn" @click="handleToNext">下一步</button>
 
 
     <div style="width: 100%; height: 50px;"></div>
@@ -98,6 +98,7 @@ export default {
     line-height: 4rem;
     text-align: center;
     background: #FC3B40;
+    border: none;
     border-radius: 2rem;
     font-size: 1.2rem;
     color: #FFF;

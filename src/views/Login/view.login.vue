@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { Toast } from 'vant';
 import LoginService from '@/api/login';
 
 export default {
@@ -113,6 +114,8 @@ export default {
           this.hasLogin = true;
 
           this.$router.push({ name: 'home' });
+        } else {
+          Toast.fail('登录失败');
         }
       });
     }
