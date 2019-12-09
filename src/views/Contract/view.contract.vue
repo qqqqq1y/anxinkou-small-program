@@ -3,7 +3,7 @@
     <navigation :showBack="false" :title="'合同'"></navigation>
     <van-search class="login-container" v-model="search.keyword" placeholder="请输入搜索关键词" @search="handleSearch" @clear="handleClear"/>
 
-    <div class="tab">
+    <div class="tab" ref="tab">
       <van-tabs style="z-index: 1001" sticky animated v-model="active" @click="handleChangeTabs">
         <van-tab title="未完成">
           <div class="ct-container" v-for="item in noOverList" :key="`no-${item.contractId}`">
@@ -75,7 +75,7 @@
                     <div class="val">{{item.monthTime}}</div>
                   </div>
                 </div>
-                <div class="col-btn col-btn-top" @click.capture.stop="handleDeleteContract(item.contractId)">删除</div>
+                <div class="col-btn col-btn-top delete" style="padding: .5rem 1.5rem" @click.capture.stop="handleDeleteContract(item.contractId)">删除</div>
               </div>
             </div>
           </div>
@@ -258,15 +258,15 @@
     <div style="width: 100%; height: 50px;"></div>
     <van-dialog id="van-dialog" />
 
-    <div v-show="show" class="contract-box" @click="handleCloseImg">
-      <div class="mask"></div>
-      <img class="img" :src="contractUrl" />
+    <div v-show="show" class="contract-box">
+      <div class="mask" @click.prevent="handleCloseImg"></div>
+      <img class="img" :src="contractUrl" @click.prevent="handleBigImg" />
     </div>
   </div>
 </template>
 
 <script>
-import { Dialog, Toast } from 'vant';
+import { Dialog, Toast, ImagePreview } from 'vant';
 import ContractService from '@/api/contract';
 
 export default {
@@ -289,6 +289,7 @@ export default {
 
       show: false,
       contractUrl: '',
+      bigImg: false,
 
       loadMoreTxt: '加载更多...'
     };
@@ -376,6 +377,14 @@ export default {
     handleRediv (info) {
       this.show = true;
       this.contractUrl = info;
+    },
+
+    handleBigImg () {
+      this.bigImg = !this.bigImg;
+
+      ImagePreview([
+        this.contractUrl
+      ]);
     },
 
     handleCloseImg () {
@@ -571,33 +580,39 @@ export default {
     bottom: 0.5rem;
   }
 
+  .delete {
+    padding: 0.5rem 1.5rem;
+  }
+
   .review {
     margin-left: 1rem;
     color: #E65A7D;
   }
 
   .contract-box {
-    position: absolute;
+    position: fixed;
     width: 100%;
-    height: 100%;
-    text-align: center;
+    min-height: 100%;
     top: 0;
-    z-index: 1001;
+    z-index: 1005;
   }
 
   .mask {
+    position: absolute;
+    top: 0;
     width: 100%;
     height: 100%;
     background: #000;
     opacity: 0.5;
+    z-index: 1001;
   }
 
   .img {
-    position: fixed;
+    position: absolute;
     width: 60%;
-    height: 96%;
+    height: 100%;
     z-index: 1002;
-    top: 1rem;
+    top: 0;
     left: 20%;
   }
 

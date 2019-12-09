@@ -16,14 +16,14 @@ module.exports = {
       // changeOrigin: true
 
       '/': {
-        target: 'http://test.weiqiangtech.com',
+        target: 'http://www.weiqiangtech.com/',
         changeOrigin: true,
         pathRewrite: {
           '^/': '/',
         }
       },
       '/uuuuu': {
-        target: 'http://test.weiqiangtech.com',
+        target: 'http://www.weiqiangtech.com/',
         changeOrigin: true
       },
     },

@@ -18,6 +18,7 @@ import Iframe from '@/views/Iframe/view.iframe';
 import IframeAuth from '@/views/IframeAuth/view.iframeAuth';
 
 import Test from '@/views/test/view.test';
+import SignTest1 from '@/views/Sign/view.signtest1';
 
 Vue.use(Router);
 
@@ -51,6 +52,10 @@ const routes = [
     path: '/web/sign',
     name: 'sign',
     component: Sign
+  }, {
+    path: '/web/signtest1',
+    name: 'signtest1',
+    component: SignTest1
   }, {
     path: '/web/contractImg',
     name: 'contractImg',
